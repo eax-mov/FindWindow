@@ -49,7 +49,7 @@ proc getWindowInfo(name: string): tuple[x, y, width, height: int] {.exportpy: "g
     var
       rect: RECT
       winInfo: WINDOWINFO
-    let hwnd = FindWindowA(nil, name)
+    let hwnd = FindWindow(nil, name)
     if hwnd == 0:
       raise newException(Exception, fmt"Window ({name}) not found")
     discard GetClientRect(hwnd, rect.addr)
